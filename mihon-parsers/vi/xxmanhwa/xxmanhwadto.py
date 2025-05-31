@@ -1,4 +1,5 @@
 from datetime import datetime
+from ...models import SChapter
 
 class ChapterDto:
     def __init__(self, post_modified: str, post_title: str, chap_link: str, member_type: str, **kwargs):
