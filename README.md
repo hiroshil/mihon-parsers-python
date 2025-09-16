@@ -2,6 +2,16 @@
 
 Ứng dụng Python với giao diện Tkinter để xem và tải manga từ LxHentai/LXManga.
 
+## 🎯 Phiên bản mới (Fixed Version)
+
+Sử dụng file `lxhentai_viewer_fixed.py` - phiên bản đã được cải tiến với:
+- ✅ **Mock Data Support**: Tự động chuyển sang dữ liệu mẫu khi không kết nối được server
+- ✅ **Error Handling**: Xử lý lỗi tốt hơn, không bị crash khi gặp lỗi 403
+- ✅ **Enhanced UI**: Giao diện được cải thiện với icons và layout tốt hơn
+- ✅ **Better Download Manager**: Quản lý download với queue và progress tracking
+- ✅ **Image Caching**: Cache ảnh đã tải để xem nhanh hơn
+- ✅ **Zoom Support**: Hỗ trợ zoom ảnh trong reader
+
 ## Tính năng
 
 - **Duyệt Manga**: Xem danh sách manga phổ biến và mới cập nhật
@@ -27,6 +37,12 @@ pip install -r requirements.txt
 
 ### Chạy ứng dụng
 
+**Phiên bản mới (Recommended):**
+```bash
+python lxhentai_viewer_fixed.py
+```
+
+**Phiên bản gốc:**
 ```bash
 python lxhentai_viewer.py
 ```
@@ -90,6 +106,7 @@ python lxhentai_viewer.py
 2. **Tốc độ tải**: Phụ thuộc vào kết nối mạng và server
 3. **Dung lượng**: Mỗi chapter có thể chiếm 10-50MB tùy số trang
 4. **Server**: Nếu không kết nối được, có thể server đã thay đổi địa chỉ
+5. **Mock Data Mode**: Khi không thể kết nối server (lỗi 403/Cloudflare), ứng dụng tự động chuyển sang chế độ dữ liệu mẫu để demo chức năng
 
 ## Tính năng nâng cao
 
@@ -108,10 +125,10 @@ self.api = LxHentaiAPI(base_url="https://lxmanga.help")  # Thay đổi URL ở �
 
 ## Xử lý lỗi
 
-### Lỗi kết nối
-- Kiểm tra kết nối internet
-- Thử lại sau vài giây
-- Kiểm tra xem server có hoạt động không
+### Lỗi kết nối / Error 403
+- Ứng dụng sẽ tự động chuyển sang Mock Data Mode
+- Trong Mock Mode, bạn vẫn có thể test đầy đủ các chức năng với dữ liệu mẫu
+- Để thử kết nối lại server thật, restart ứng dụng
 
 ### Lỗi tải ảnh
 - Một số ảnh có thể bị lỗi do server
